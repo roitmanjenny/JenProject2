@@ -15,7 +15,7 @@ public class MainTests {
         driver.get("https://buyme.co.il/");
     }
     @Test
-    public void test01(){
+    public void test01Registration(){
         RegistrationPage registrationPage = new RegistrationPage();
         registrationPage.clickRegisterLogin();
         registrationPage.clickRegister();
@@ -23,6 +23,12 @@ public class MainTests {
         registrationPage.assertFields();
         registrationPage.clickRegister2();
 
+    }
+    @Test
+    public void text02Homescreen(){
+        RegistrationPage registrationPage = new RegistrationPage();
+        registrationPage.clickRegisterLogin();
+        registrationPage.login();
     }
 
     @AfterClass

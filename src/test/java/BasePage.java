@@ -2,6 +2,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class BasePage {
+    private static String email = "jen@email.com";
+    private static String password = "Q1w2e3r4";
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+
     public void clickElement(By locator) {
         getWebElement(locator).click();
     }
@@ -13,4 +24,5 @@ public class BasePage {
     public WebElement getWebElement(By locator) {
         return DriverSingleton.getDriverInstance().findElement(locator);
     }
+
 }
