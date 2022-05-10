@@ -5,8 +5,6 @@ import static org.testng.Assert.assertEquals;
 
 public class RegistrationPage extends BasePage {
     private WebDriver driver;
-//private static String email = "jen@email.com";
-//private static String password = "Q1w2e3r4";
 
     public RegistrationPage() {
         this.driver = DriverSingleton.getDriverInstance();
