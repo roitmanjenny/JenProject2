@@ -44,6 +44,7 @@ public class MainTests {
         businessPage.clickCategory();
         businessPage.clickBusiness();
         businessPage.insertPrice("100");
+        businessPage.clickChoose();
     }
 
     @AfterTest

@@ -17,4 +17,7 @@ public class BusinessPage extends BasePage{
     public void insertPrice(String price){
         sendKeysToElement(By.xpath("//form[@action='submitMoney']/div/label"),price);
     }
+    public void clickChoose(){
+        clickElement(By.xpath("//form[@action='submitMoney']/div[2]/button"));
+    }
 }
