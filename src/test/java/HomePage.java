@@ -16,14 +16,12 @@ public class HomePage extends BasePage {
         this.driver = DriverSingleton.getDriverInstance();
     }
 
-    public void selectPrice(int value) {
+    public void selectPrice() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//form[@class='form ember-view']//label[1]//div/div/span")));
-        WebElement elementToClick = driver.findElement(By.xpath("//form[@class='form ember-view']//label[1]//div/div/span"));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//form[@class='form ember-view']//label[1]//div")));
+        WebElement elementToClick = driver.findElement(By.xpath("//form[@class='form ember-view']//label[1]//div"));
         new Actions(driver).moveToElement(elementToClick).click().perform();
-
         clickElement(By.xpath("//form[@class='form ember-view']//label[1]//li[2]"));
-
     }
 
     public void selectRegion(String value) {
@@ -32,7 +30,7 @@ public class HomePage extends BasePage {
         region.selectByValue(value);
     }
 
-    public void selectCathegory(String value) {
+    public void selectCategory(String value) {
         clickElement(By.xpath("//form[@class='form ember-view']//label[3]"));
         Select cathegory = new Select(driver.findElement(By.xpath("//form[@class='form ember-view']//label[3]//select")));
         cathegory.selectByValue(value);

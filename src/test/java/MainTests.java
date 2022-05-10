@@ -33,10 +33,17 @@ public class MainTests {
         registrationPage.clickRegisterLogin();
         registrationPage.login();
         HomePage homePage = new HomePage();
-        homePage.selectPrice(2);
+        homePage.selectPrice();
 //        homePage.selectRegion("11");
-//        homePage.selectCathegory("204");
+//        homePage.selectCategory("204");
 //        homePage.clickSearch();
+    }
+    @Test
+    public void test03Business() {
+        BusinessPage businessPage = new BusinessPage();
+        businessPage.clickCategory();
+        businessPage.clickBusiness();
+        businessPage.insertPrice("100");
     }
 
     @AfterTest
