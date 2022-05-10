@@ -21,7 +21,8 @@ public class HomePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//form[@class='form ember-view']//label[1]//div")));
         WebElement elementToClick = driver.findElement(By.xpath("//form[@class='form ember-view']//label[1]//div"));
         new Actions(driver).moveToElement(elementToClick).click().perform();
-        clickElement(By.xpath("//form[@class='form ember-view']//label[1]//li[2]"));
+        //clickElement(By.xpath("//form[@class='form ember-view']//label[1]//li[2]"));
+        clickElement(By.xpath("//div[@class='dropdown']/ul/li[2]"));
     }
 
     public void selectRegion(String value) {
