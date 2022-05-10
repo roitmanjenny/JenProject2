@@ -18,13 +18,11 @@ public class HomePage extends BasePage {
 
     public void selectPrice(int value) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//form[@class='form ember-view']//label[1]/div")));
-        WebElement elementToClick = driver.findElement(By.xpath("//form[@class='form ember-view']//div"));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//form[@class='form ember-view']//label[1]//div/div/span")));
+        WebElement elementToClick = driver.findElement(By.xpath("//form[@class='form ember-view']//label[1]//div/div/span"));
         new Actions(driver).moveToElement(elementToClick).click().perform();
-//-----------
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//form[@class='form ember-view']//label[1]//select/option[2]")));
-//        Select price = new Select(driver.findElement(By.xpath("//form[@class='form ember-view']//label[1]//select")));
-//        price.selectByIndex(value);
+
+        clickElement(By.xpath("//form[@class='form ember-view']//label[1]//li[2]"));
 
     }
 
