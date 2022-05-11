@@ -12,7 +12,8 @@ public class MainTests {
         WebDriver driver = DriverSingleton.getDriverInstance();
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://buyme.co.il/");
+        //driver.get("https://buyme.co.il/");
+        driver.get("https://buyme.co.il/money/15287647?price=100");
         driver.manage().window().maximize();
     }
 
@@ -45,6 +46,12 @@ public class MainTests {
         businessPage.clickBusiness();
         businessPage.insertPrice("100");
         businessPage.clickChoose();
+    }
+
+    @Test
+    public void test04_Info() {
+        InfoPage businessPage = new InfoPage();
+        businessPage.InsertName();
     }
 
     @AfterTest
