@@ -14,6 +14,7 @@ public class MainTests {
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://buyme.co.il/");
+        driver.manage().window().maximize();
     }
 
     @Test
@@ -29,15 +30,16 @@ public class MainTests {
 
     @Test
     public void text02Homescreen() {
-        RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.clickRegisterLogin();
-        registrationPage.login();
+//        RegistrationPage registrationPage = new RegistrationPage();
+//        registrationPage.clickRegisterLogin();
+//        registrationPage.login();
         HomePage homePage = new HomePage();
         homePage.selectPrice();
-//        homePage.selectRegion("11");
-//        homePage.selectCategory("204");
-//        homePage.clickSearch();
+        homePage.selectRegion();
+        homePage.selectCategory();
+        homePage.clickSearch();
     }
+
     @Test
     public void test03Business() {
         BusinessPage businessPage = new BusinessPage();
