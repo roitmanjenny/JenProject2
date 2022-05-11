@@ -19,22 +19,21 @@ public class RegistrationPage extends BasePage {
     }
 
     public void fillRegistrationForm() {
-        //fillField(By.id("ember1794"),"firstname");
         sendKeysToElement(By.id("ember1794"), "firstname");
         sendKeysToElement(By.id("ember1801"), BasePage.getEmail());
         sendKeysToElement(By.id("valPass"), BasePage.getPassword());
         sendKeysToElement(By.id("ember1815"), BasePage.getPassword());
     }
 
-    public void login() {
-        getWebElement(By.xpath("//input[@placeholder = 'מייל']")).clear();
-        sendKeysToElement(By.xpath("//input[@placeholder = 'מייל']"), BasePage.getEmail());
-
-        getWebElement(By.xpath("//input[@placeholder = 'סיסמה']")).clear();
-        sendKeysToElement(By.xpath("//input[@placeholder = 'סיסמה']"), BasePage.getPassword());
-
-        clickElement(By.xpath("//button[@type = 'submit']"));
-    }
+//    public void login() {
+//        getWebElement(By.xpath("//input[@placeholder = 'מייל']")).clear();
+//        sendKeysToElement(By.xpath("//input[@placeholder = 'מייל']"), BasePage.getEmail());
+//
+//        getWebElement(By.xpath("//input[@placeholder = 'סיסמה']")).clear();
+//        sendKeysToElement(By.xpath("//input[@placeholder = 'סיסמה']"), BasePage.getPassword());
+//
+//        clickElement(By.xpath("//button[@type = 'submit']"));
+//    }
 
     public void assertFields() {
         assertEquals(getWebElement(By.id("ember1794")).getAttribute("value"), "firstname");
@@ -44,10 +43,4 @@ public class RegistrationPage extends BasePage {
     public void clickRegister2() {
         clickElement(By.id("ember1821"));
     }
-
-//    public void fillField(By locator, String text){
-//        sendKeysToElement(locator,text);
-//    }
-
-
 }

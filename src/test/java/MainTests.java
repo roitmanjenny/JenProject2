@@ -1,5 +1,4 @@
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,18 +17,17 @@ public class MainTests {
     }
 
     @Test
-    public void test01Registration() {
+    public void test01_Registration() {
         RegistrationPage registrationPage = new RegistrationPage();
         registrationPage.clickRegisterLogin();
         registrationPage.clickRegister();
         registrationPage.fillRegistrationForm();
         registrationPage.assertFields();
         registrationPage.clickRegister2();
-
     }
 
     @Test
-    public void text02Homescreen() {
+    public void test02_Homescreen() {
 //        RegistrationPage registrationPage = new RegistrationPage();
 //        registrationPage.clickRegisterLogin();
 //        registrationPage.login();
@@ -41,9 +39,9 @@ public class MainTests {
     }
 
     @Test
-    public void test03Business() {
+    public void test03_Business() {
         BusinessPage businessPage = new BusinessPage();
-        businessPage.clickCategory();
+        //businessPage.clickCategory();
         businessPage.clickBusiness();
         businessPage.insertPrice("100");
         businessPage.clickChoose();
