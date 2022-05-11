@@ -12,8 +12,8 @@ public class MainTests {
         WebDriver driver = DriverSingleton.getDriverInstance();
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //driver.get("https://buyme.co.il/");
-        driver.get("https://buyme.co.il/money/15287647?price=100");
+        driver.get("https://buyme.co.il/");
+        //driver.get("https://buyme.co.il/money/15287647?price=100");
         driver.manage().window().maximize();
     }
 
@@ -56,6 +56,10 @@ public class MainTests {
         infoPage.enterBlessing();
         infoPage.uploadPicture();
         infoPage.clickNext();
+        infoPage.pickMail();
+        infoPage.enterMail();
+        infoPage.enterSender();
+        infoPage.clickPay();
     }
 
     @AfterTest

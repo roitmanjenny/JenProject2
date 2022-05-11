@@ -23,8 +23,8 @@ public class HomePage extends BasePage {
 //        new Actions(driver).moveToElement(elementToClick).click().perform();
 
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@value='2']")));
-        WebElement elementToClick2 = driver.findElement(By.xpath("//li[@value='2']"));
+        wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='dropdown'][1]//li[4]")));
+        WebElement elementToClick2 = driver.findElement(By.xpath("//div[@class='dropdown'][1]//li[4]"));
         new Actions(driver).moveToElement(elementToClick2).click().perform();
     }
 
