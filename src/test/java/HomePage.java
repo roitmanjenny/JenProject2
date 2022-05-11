@@ -18,16 +18,16 @@ public class HomePage extends BasePage {
         clickElement(By.xpath("//span[.='סכום']"));
 
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='dropdown'][1]//li[4]")));
-        WebElement elementToClick2 = driver.findElement(By.xpath("//div[@class='dropdown'][1]//li[4]"));
+        wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='input-label-wrapper']//span[contains(text(), '100-199')]")));
+        WebElement elementToClick2 = driver.findElement(By.xpath("//div[@class='input-label-wrapper']//span[contains(text(), '100-199')]"));
         new Actions(driver).moveToElement(elementToClick2).click().perform();
     }
 
     public void selectRegion() {
         clickElement(By.xpath("//span[.='אזור']"));
 
-        WebDriverWait wait3 = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait3.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@value='14']")));
+        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@value='14']")));
         WebElement elementToClick3 = driver.findElement(By.xpath("//li[@value='14']"));
         new Actions(driver).moveToElement(elementToClick3).click().perform();
     }

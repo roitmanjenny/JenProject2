@@ -2,7 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class BasePage {
-    public static String email = "jen154@email.com";
+    public static String email = "jenny1@email.com";
     private static String password = "Q1w2e3r4";
 
     public static String getEmail() {

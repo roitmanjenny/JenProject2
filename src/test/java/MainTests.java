@@ -1,9 +1,9 @@
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import java.util.concurrent.TimeUnit;
+
 
 
 public class MainTests {
@@ -27,7 +27,7 @@ public class MainTests {
     }
 
     @Test
-    public void test02_Homescreen() {
+    public void test02_HomePage() {
         HomePage homePage = new HomePage();
         homePage.selectPrice();
         homePage.selectRegion();
@@ -57,7 +57,7 @@ public class MainTests {
         infoPage.clickPay();
     }
 
-    @AfterTest
+    @AfterClass
     public static void tearDown() {
         DriverSingleton.getDriverInstance().quit();
     }
