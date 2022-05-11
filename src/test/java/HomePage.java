@@ -17,11 +17,6 @@ public class HomePage extends BasePage {
     public void selectPrice() {
         clickElement(By.xpath("//span[.='סכום']"));
 
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='סכום']")));
-//        WebElement elementToClick = driver.findElement(By.xpath("//span[.='סכום']"));
-//        new Actions(driver).moveToElement(elementToClick).click().perform();
-
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='dropdown'][1]//li[4]")));
         WebElement elementToClick2 = driver.findElement(By.xpath("//div[@class='dropdown'][1]//li[4]"));

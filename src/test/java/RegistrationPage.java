@@ -25,16 +25,6 @@ public class RegistrationPage extends BasePage {
         sendKeysToElement(By.id("ember1815"), BasePage.getPassword());
     }
 
-//    public void login() {
-//        getWebElement(By.xpath("//input[@placeholder = 'מייל']")).clear();
-//        sendKeysToElement(By.xpath("//input[@placeholder = 'מייל']"), BasePage.getEmail());
-//
-//        getWebElement(By.xpath("//input[@placeholder = 'סיסמה']")).clear();
-//        sendKeysToElement(By.xpath("//input[@placeholder = 'סיסמה']"), BasePage.getPassword());
-//
-//        clickElement(By.xpath("//button[@type = 'submit']"));
-//    }
-
     public void assertFields() {
         assertEquals(getWebElement(By.id("ember1794")).getAttribute("value"), "firstname");
         assertEquals(getWebElement(By.id("ember1801")).getAttribute("value"), BasePage.getEmail());

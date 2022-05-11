@@ -9,14 +9,10 @@ import java.time.Duration;
 
 public class BusinessPage extends BasePage{
     private WebDriver driver;
-
     public BusinessPage() {
         this.driver = DriverSingleton.getDriverInstance();
     }
 
-//    public void clickCategory(){
-//        clickElement(By.className("product-card-bg"));
-//    }
     public void clickBusiness(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[@class='grid bm-product-cards']/div[1]/a/div/div[3]")));

@@ -19,7 +19,6 @@ public class InfoPage extends BasePage {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//label[@id='friendName']/input")));
-
         sendKeysToElement(By.xpath("//label[@id='friendName']/input"), "myself");
     }
 
@@ -39,7 +38,6 @@ public class InfoPage extends BasePage {
 
     public void uploadPicture() {
         File image = new File("src/test/resources/images/Image.jpeg");
-        //getWebElement(By.xpath("//label[@class='media-circle-btn ember-view bm-media-upload']//input")).sendKeys(image.getAbsolutePath());
         sendKeysToElement(By.xpath("//label[@class='media-circle-btn ember-view bm-media-upload']//input"),image.getAbsolutePath());
     }
 

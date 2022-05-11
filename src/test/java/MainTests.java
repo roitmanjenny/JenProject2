@@ -13,7 +13,6 @@ public class MainTests {
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://buyme.co.il/");
-        //driver.get("https://buyme.co.il/money/15287647?price=100");
         driver.manage().window().maximize();
     }
 
@@ -29,9 +28,6 @@ public class MainTests {
 
     @Test
     public void test02_Homescreen() {
-//        RegistrationPage registrationPage = new RegistrationPage();
-//        registrationPage.clickRegisterLogin();
-//        registrationPage.login();
         HomePage homePage = new HomePage();
         homePage.selectPrice();
         homePage.selectRegion();
@@ -42,7 +38,6 @@ public class MainTests {
     @Test
     public void test03_Business() {
         BusinessPage businessPage = new BusinessPage();
-        //businessPage.clickCategory();
         businessPage.clickBusiness();
         businessPage.insertPrice("100");
         businessPage.clickChoose();
@@ -64,7 +59,7 @@ public class MainTests {
 
     @AfterTest
     public static void tearDown() {
-      //  DriverSingleton.getDriverInstance().quit();
+        DriverSingleton.getDriverInstance().quit();
     }
 
 }
