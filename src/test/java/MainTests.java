@@ -50,13 +50,17 @@ public class MainTests {
 
     @Test
     public void test04_Info() {
-        InfoPage businessPage = new InfoPage();
-        businessPage.InsertName();
+        InfoPage infoPage = new InfoPage();
+        infoPage.insertName();
+        infoPage.pickEvent();
+        infoPage.enterBlessing();
+        infoPage.uploadPicture();
+        infoPage.clickNext();
     }
 
     @AfterTest
     public static void tearDown() {
-        DriverSingleton.getDriverInstance().quit();
+      //  DriverSingleton.getDriverInstance().quit();
     }
 
 }
