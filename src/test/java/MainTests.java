@@ -7,15 +7,15 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 
-public class MainTests {
-    @BeforeClass
-    public void openURL() throws Exception {
+public class MainTests{
 
+    @BeforeClass
+    public void before() throws Exception {
         WebDriver driver = DriverSingleton.getDriverInstance();
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get(DriverSingleton.getData("URL"));
 
-        driver.manage().window().maximize();
     }
 
 

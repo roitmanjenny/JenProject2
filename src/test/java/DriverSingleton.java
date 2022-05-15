@@ -20,14 +20,21 @@ public class DriverSingleton {
 //    }
 
     public static WebDriver getDriverInstance() throws Exception {
-        String type = getData("browserType");
-        driver.get(getData("URL"));
-        if(type.equals("Chrome")){
-            System.setProperty("webdriver.chrome.driver", Constants.CHROMEDRIVER_PATH);
-            driver = new ChromeDriver();
-        }else if(type.equals("FF")){
-            System.setProperty("webdriver.firefox.driver", "C:\\geckodriver\\geckodriver.exe");
-            driver = new FirefoxDriver();
+        if (driver==null) {
+            try {
+                String type = getData("browserType");
+                if (type.equals("Chrome")) {
+                    System.setProperty("webdriver.chrome.driver", Constants.CHROMEDRIVER_PATH);
+                    driver = new ChromeDriver();
+                    driver.manage().window().maximize();
+                } else if (type.equals("FF")) {
+                    System.setProperty("webdriver.firefox.driver", "C:\\geckodriver\\geckodriver.exe");
+                    driver = new FirefoxDriver();
+                    driver.manage().window().maximize();
+                }
+            } catch (Exception e) {
+                throw new Exception("Driver failed!");
+            }
         }
         return driver;
     }
