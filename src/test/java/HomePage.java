@@ -9,12 +9,12 @@ import java.time.Duration;
 public class HomePage extends BasePage {
     private WebDriver driver;
 
-    public HomePage() {
+    public HomePage() throws Exception {
         this.driver = DriverSingleton.getDriverInstance();
 
     }
 
-    public void selectPrice() {
+    public void selectPrice() throws Exception {
         clickElement(By.xpath("//span[.='סכום']"));
 
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -23,7 +23,7 @@ public class HomePage extends BasePage {
         new Actions(driver).moveToElement(elementToClick2).click().perform();
     }
 
-    public void selectRegion() {
+    public void selectRegion() throws Exception {
         clickElement(By.xpath("//span[.='אזור']"));
 
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -32,7 +32,7 @@ public class HomePage extends BasePage {
         new Actions(driver).moveToElement(elementToClick3).click().perform();
     }
 
-    public void selectCategory() {
+    public void selectCategory() throws Exception {
         clickElement(By.xpath("//span[.='קטגוריה']"));
 
         WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -41,7 +41,7 @@ public class HomePage extends BasePage {
         new Actions(driver).moveToElement(elementToClick).click().perform();
     }
 
-    public void clickSearch() {
+    public void clickSearch() throws Exception {
         clickElement(By.id("ember1188"));
     }
 }

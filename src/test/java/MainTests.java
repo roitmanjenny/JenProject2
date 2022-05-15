@@ -1,4 +1,6 @@
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -7,16 +9,18 @@ import java.util.concurrent.TimeUnit;
 
 public class MainTests {
     @BeforeClass
-    public static void beforeAll() {
+    public void openURL() throws Exception {
+
         WebDriver driver = DriverSingleton.getDriverInstance();
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://buyme.co.il/");
+
         driver.manage().window().maximize();
     }
 
+
     @Test
-    public void test01_Registration() {
+    public void test01_Registration() throws Exception {
         RegistrationPage registrationPage = new RegistrationPage();
         registrationPage.clickRegisterLogin();
         registrationPage.clickRegister();
@@ -26,7 +30,7 @@ public class MainTests {
     }
 
     @Test
-    public void test02_HomePage() {
+    public void test02_HomePage() throws Exception {
         HomePage homePage = new HomePage();
         homePage.selectPrice();
         homePage.selectRegion();
@@ -35,7 +39,7 @@ public class MainTests {
     }
 
     @Test
-    public void test03_Business() {
+    public void test03_Business() throws Exception {
         BusinessPage businessPage = new BusinessPage();
         businessPage.clickBusiness();
         businessPage.insertPrice("100");
@@ -43,7 +47,7 @@ public class MainTests {
     }
 
     @Test
-    public void test04_Info() {
+    public void test04_Info() throws Exception {
         InfoPage infoPage = new InfoPage();
         infoPage.insertName();
         infoPage.pickEvent();
@@ -57,7 +61,7 @@ public class MainTests {
     }
 
     @AfterClass
-    public static void tearDown() {
+    public static void tearDown() throws Exception {
         DriverSingleton.getDriverInstance().quit();
     }
 
