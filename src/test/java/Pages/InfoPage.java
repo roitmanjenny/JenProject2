@@ -1,12 +1,16 @@
+package Pages;
+
+import Utils.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.File;
 import java.time.Duration;
+
+import static org.testng.Assert.assertEquals;
 
 public class InfoPage extends BasePage {
     private WebDriver driver;
@@ -16,7 +20,6 @@ public class InfoPage extends BasePage {
     }
 
     public void insertName() throws Exception {
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//label[@id='friendName']/input")));
         sendKeysToElement(By.xpath("//label[@id='friendName']/input"), "myself");
@@ -56,6 +59,7 @@ public class InfoPage extends BasePage {
     public void enterSender() throws Exception {
         getWebElement(By.xpath("//div[@class='mx-6 md-12 bottom-sm']/label/input")).clear();
         sendKeysToElement(By.xpath("//div[@class='mx-6 md-12 bottom-sm']/label/input"), "Jen");
+        assertEquals(getWebElement(By.xpath("//div[@class='mx-6 md-12 bottom-sm']/label/input")).getAttribute("value"), "Jen");
     }
 
     public void clickPay() throws Exception {
