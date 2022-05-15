@@ -4,8 +4,6 @@ import Pages.InfoPage;
 import Pages.RegistrationPage;
 import Utils.DriverSingleton;
 import Utils.ExtentReport;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -13,19 +11,16 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
-
 public class MainTests {
-
-    private static ExtentReports extent = ExtentReport.getReporter();
-    private static ExtentTest test = extent.createTest("BuyMe Automation Project", "Website Sanity test");
 
     @BeforeClass
     public void before() throws Exception {
+        ExtentReport.createTest("BuyMe Automation Project", "Website Sanity test");
         WebDriver driver = DriverSingleton.getDriverInstance();
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(DriverSingleton.getData("URL"));
-        test.log(Status.INFO, "Before test prep done");
+        ExtentReport.getTest().log(Status.INFO, "Before test prep done");
     }
 
     @Test
@@ -37,10 +32,10 @@ public class MainTests {
             registrationPage.fillRegistrationForm();
             registrationPage.assertFields();
             registrationPage.clickRegister2();
-            test.pass("Registration successful");
+            ExtentReport.getTest().pass("Registration successful");
         } catch (Exception e) {
             e.printStackTrace();
-            test.fail("Registration was not successful! " + e.getMessage());
+            ExtentReport.getTest().fail("Registration was not successful! " + e.getMessage());
         }
     }
 
@@ -52,10 +47,10 @@ public class MainTests {
             homePage.selectRegion();
             homePage.selectCategory();
             homePage.clickSearch();
-            test.pass("Homepage search and filter successful");
+            ExtentReport.getTest().pass("Homepage search and filter successful");
         } catch (Exception e) {
             e.printStackTrace();
-            test.fail("Homepage search and filter was not successful! " + e.getMessage());
+            ExtentReport.getTest().fail("Homepage search and filter was not successful! " + e.getMessage());
         }
     }
 
@@ -66,10 +61,10 @@ public class MainTests {
             businessPage.clickBusiness();
             businessPage.insertPrice("100");
             businessPage.clickChoose();
-            test.pass("Business selection was successful");
+            ExtentReport.getTest().pass("Business selection was successful");
         } catch (Exception e) {
             e.printStackTrace();
-            test.fail("Business selection was  not successful! " + e.getMessage());
+            ExtentReport.getTest().fail("Business selection was  not successful! " + e.getMessage());
         }
     }
 
@@ -86,17 +81,17 @@ public class MainTests {
             infoPage.enterMail();
             infoPage.enterSender();
             infoPage.clickPay();
-            test.pass("Info inserted successfully");
+            ExtentReport.getTest().pass("Info inserted successfully");
         } catch (Exception e) {
             e.printStackTrace();
-            test.fail("Info inserted not successfully! " + e.getMessage());
+            ExtentReport.getTest().fail("Info inserted not successfully! " + e.getMessage());
         }
     }
 
     @AfterClass
     public static void tearDown() throws Exception {
-        test.log(Status.INFO, "All tests finished");
-        extent.flush();
+        ExtentReport.getTest().log(Status.INFO, "All tests finished");
+        ExtentReport.getReporter().flush();
         DriverSingleton.getDriverInstance().quit();
     }
 

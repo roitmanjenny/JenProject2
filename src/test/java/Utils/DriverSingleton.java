@@ -1,6 +1,5 @@
 package Utils;
 
-import Pages.BasePage;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,15 +22,15 @@ public class DriverSingleton {
                     System.setProperty("webdriver.chrome.driver", Constants.CHROMEDRIVER_PATH);
                     driver = new ChromeDriver();
                     driver.manage().window().maximize();
-                    BasePage.test.log(Status.PASS, "ChromeDriver created successfully");
+                    ExtentReport.getTest().log(Status.PASS, "ChromeDriver created successfully");
                 } else if (type.equals("FF")) {
                     System.setProperty("webdriver.firefox.driver", "C:tbd");
                     driver = new FirefoxDriver();
                     driver.manage().window().maximize();
-                    BasePage.test.log(Status.PASS, "FFDriver created successfully");
+                    ExtentReport.getTest().log(Status.PASS, "FFDriver created successfully");
                 }
             } catch (Exception e) {
-                BasePage.test.log(Status.FAIL, "Driver failed!" + e.getMessage());
+                ExtentReport.getTest().log(Status.FAIL, "Driver failed!" + e.getMessage());
                 throw new Exception("Driver failed!");
             }
         }
@@ -39,7 +38,7 @@ public class DriverSingleton {
     }
 
 
-    static String getData(String keyName) throws Exception {
+    public static String getData(String keyName) throws Exception {
         File fXmlFile = new File("/Users/jennyroitman/Library/CloudStorage/OneDrive-IgentifyLtd/JennyR/IdeaProjects/JenProject2/src/test/resources/XML/data.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

@@ -1,11 +1,21 @@
 package Utils;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtentReport {
     public static ExtentReports extent;
     public static ExtentSparkReporter htmlReporter;
+    public static ExtentTest test;
+
+    public static synchronized void createTest(String name, String description){
+        test = ExtentReport.getReporter().createTest(name, description);
+    }
+
+    public static synchronized ExtentTest getTest(){
+        return test;
+    }
 
     public static synchronized ExtentReports getReporter() {
         if (extent == null) {
