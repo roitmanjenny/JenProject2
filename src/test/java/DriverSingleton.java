@@ -28,7 +28,7 @@ public class DriverSingleton {
                     driver = new ChromeDriver();
                     driver.manage().window().maximize();
                 } else if (type.equals("FF")) {
-                    System.setProperty("webdriver.firefox.driver", "C:\\geckodriver\\geckodriver.exe");
+                    System.setProperty("webdriver.firefox.driver", "C:tbd");
                     driver = new FirefoxDriver();
                     driver.manage().window().maximize();
                 }

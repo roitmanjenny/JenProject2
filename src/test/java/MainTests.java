@@ -1,6 +1,7 @@
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -9,24 +10,34 @@ import java.util.concurrent.TimeUnit;
 
 public class MainTests{
 
+    private static ExtentReports extent = ExtentReport.getReporter();
+    private static ExtentTest test = extent.createTest("BuyMe Automation Project", "Website Sanity test");
+
     @BeforeClass
     public void before() throws Exception {
         WebDriver driver = DriverSingleton.getDriverInstance();
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(DriverSingleton.getData("URL"));
-
+        test.log(Status.INFO, "before test method");
     }
 
 
     @Test
     public void test01_Registration() throws Exception {
-        RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.clickRegisterLogin();
-        registrationPage.clickRegister();
-        registrationPage.fillRegistrationForm();
-        registrationPage.assertFields();
-        registrationPage.clickRegister2();
+        try {
+            RegistrationPage registrationPage = new RegistrationPage();
+            registrationPage.clickRegisterLogin();
+            registrationPage.clickRegister();
+            registrationPage.fillRegistrationForm();
+            registrationPage.assertFields();
+            registrationPage.clickRegister2();
+            test.pass("Registration successful");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            test.fail("Registration was not successful! " + e.getMessage());
+        }
     }
 
     @Test
@@ -62,6 +73,7 @@ public class MainTests{
 
     @AfterClass
     public static void tearDown() throws Exception {
+        extent.flush();
         DriverSingleton.getDriverInstance().quit();
     }
 
