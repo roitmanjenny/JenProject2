@@ -19,18 +19,18 @@ public class RegistrationPage extends BasePage {
     }
 
     public void fillRegistrationForm() {
-        sendKeysToElement(By.id("ember1794"), "firstname");
-        sendKeysToElement(By.id("ember1801"), BasePage.getEmail());
+        sendKeysToElement(By.id("ember1795"), "firstname");
+        sendKeysToElement(By.id("ember1802"), BasePage.getEmail());
         sendKeysToElement(By.id("valPass"), BasePage.getPassword());
-        sendKeysToElement(By.id("ember1815"), BasePage.getPassword());
+        sendKeysToElement(By.id("ember1816"), BasePage.getPassword());
     }
 
     public void assertFields() {
-        assertEquals(getWebElement(By.id("ember1794")).getAttribute("value"), "firstname");
-        assertEquals(getWebElement(By.id("ember1801")).getAttribute("value"), BasePage.getEmail());
+        assertEquals(getWebElement(By.id("ember1795")).getAttribute("value"), "firstname");
+        assertEquals(getWebElement(By.id("ember1802")).getAttribute("value"), BasePage.getEmail());
     }
 
     public void clickRegister2() {
-        clickElement(By.id("ember1821"));
+        clickElement(By.id("ember1822"));
     }
 }

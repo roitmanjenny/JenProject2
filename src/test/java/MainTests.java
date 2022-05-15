@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 
-
 public class MainTests {
     @BeforeClass
     public static void beforeAll() {
