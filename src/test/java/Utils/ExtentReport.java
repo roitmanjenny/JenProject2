@@ -9,11 +9,12 @@ public class ExtentReport {
     public static ExtentSparkReporter htmlReporter;
     public static ExtentTest test;
 
-    public static synchronized void createTest(String name, String description){
+    //creating and getting test instance once
+    public static synchronized void createTest(String name, String description) {
         test = ExtentReport.getReporter().createTest(name, description);
     }
 
-    public static synchronized ExtentTest getTest(){
+    public static synchronized ExtentTest getTest() {
         return test;
     }
 

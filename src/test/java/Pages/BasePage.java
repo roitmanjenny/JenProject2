@@ -6,12 +6,14 @@ import Utils.ExtentReport;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+
 import java.io.File;
 import java.io.IOException;
+
 import org.openqa.selenium.TakesScreenshot;
 
 public class BasePage {
-    public static String email = "jenny22@email.com";
+    public static String email = "jenny34@email.com";
     private static String password = "Q1w2e3r4";
 
 
@@ -23,6 +25,7 @@ public class BasePage {
         return password;
     }
 
+    //click element by received locator
     public void clickElement(By locator) throws Exception {
         try {
             getWebElement(locator).click();
@@ -32,6 +35,7 @@ public class BasePage {
         }
     }
 
+    //send keys to element by received locator and the keys
     public void sendKeysToElement(By locator, String text) throws Exception {
         try {
             getWebElement(locator).sendKeys(text);
@@ -41,6 +45,7 @@ public class BasePage {
         }
     }
 
+    //find element by received locator
     public WebElement getWebElement(By locator) throws Exception {
         try {
             ExtentReport.getTest().pass("Element found");
@@ -50,6 +55,7 @@ public class BasePage {
         return DriverSingleton.getDriverInstance().findElement(locator);
     }
 
+    //take screenshot
     private static String takeScreenShot(WebDriver driver, String ImagesPath) {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File screenShotFile = takesScreenshot.getScreenshotAs(OutputType.FILE);

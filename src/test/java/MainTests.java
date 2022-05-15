@@ -22,7 +22,7 @@ public class MainTests {
         driver.get(DriverSingleton.getData("URL"));
         ExtentReport.getTest().log(Status.INFO, "Before test prep done");
     }
-
+//Testing registration
     @Test
     public void test01_Registration() throws Exception {
         try {
@@ -38,7 +38,7 @@ public class MainTests {
             ExtentReport.getTest().fail("Registration was not successful! " + e.getMessage());
         }
     }
-
+//Testing the filtering in home page
     @Test
     public void test02_HomePage() throws Exception {
         try {
@@ -53,7 +53,7 @@ public class MainTests {
             ExtentReport.getTest().fail("Homepage search and filter was not successful! " + e.getMessage());
         }
     }
-
+//Testing the selection of the price inside chosen business
     @Test
     public void test03_Business() throws Exception {
         try {
@@ -67,7 +67,7 @@ public class MainTests {
             ExtentReport.getTest().fail("Business selection was  not successful! " + e.getMessage());
         }
     }
-
+//Testing the filling of info and greetings
     @Test
     public void test04_Info() throws Exception {
         try {

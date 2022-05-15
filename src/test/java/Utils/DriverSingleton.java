@@ -13,7 +13,7 @@ import java.io.File;
 public class DriverSingleton {
     private static WebDriver driver;
 
-
+    //creating an instance of WebDriver based on a browser-type in xml config file
     public static WebDriver getDriverInstance() throws Exception {
         if (driver == null) {
             try {
@@ -37,7 +37,7 @@ public class DriverSingleton {
         return driver;
     }
 
-
+    //parsing the xml
     public static String getData(String keyName) throws Exception {
         File fXmlFile = new File("/Users/jennyroitman/Library/CloudStorage/OneDrive-IgentifyLtd/JennyR/IdeaProjects/JenProject2/src/test/resources/XML/data.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

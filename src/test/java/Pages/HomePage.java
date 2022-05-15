@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 public class HomePage extends BasePage {
@@ -17,6 +18,7 @@ public class HomePage extends BasePage {
 
     }
 
+    //select the price filter
     public void selectPrice() throws Exception {
         clickElement(By.xpath("//span[.='סכום']"));
 
@@ -26,6 +28,7 @@ public class HomePage extends BasePage {
         new Actions(driver).moveToElement(elementToClick2).click().perform();
     }
 
+    //select the region filter
     public void selectRegion() throws Exception {
         clickElement(By.xpath("//span[.='אזור']"));
 
@@ -35,6 +38,7 @@ public class HomePage extends BasePage {
         new Actions(driver).moveToElement(elementToClick3).click().perform();
     }
 
+    //select the category filter
     public void selectCategory() throws Exception {
         clickElement(By.xpath("//span[.='קטגוריה']"));
 
@@ -44,6 +48,7 @@ public class HomePage extends BasePage {
         new Actions(driver).moveToElement(elementToClick).click().perform();
     }
 
+    //click search button
     public void clickSearch() throws Exception {
         clickElement(By.id("ember1188"));
     }
